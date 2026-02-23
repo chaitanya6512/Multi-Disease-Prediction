@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Iris Prediction Result{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Prediction Result</h2>
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            Prediction Details
+        </div>
+        <div class="card-body">
+            <p class="mb-2"><strong>Sepal Length:</strong> {{ input_data.sepallength }} cm</p>
+            <p class="mb-2"><strong>Sepal Width:</strong> {{ input_data.sepalwidth }} cm</p>
+            <p class="mb-2"><strong>Petal Length:</strong> {{ input_data.petallength }} cm</p>
+            <p class="mb-2"><strong>Petal Width:</strong> {{ input_data.petalwidth }} cm</p>
+            <hr>
+            <p class="text-success"><strong>Predicted Species:</strong> {{ prediction }}</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/predict/iris" class="btn btn-primary">Try Another Prediction</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Heart Disease Prediction Result{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded p-4">
+        <div class="card-header text-center text-white" style="background: linear-gradient(90deg, #003366, #6600cc);">
+            <h2 class="mb-0">Heart Disease Prediction Result</h2>
+        </div>
+        <div class="card-body text-center">
+            <h4 class="mb-3">Uploaded Image</h4>
+            <img src="/static/uploads/{{ image_filename }}" alt="Uploaded Image" class="img-thumbnail mb-3 shadow-lg" style="max-width: 300px; border-radius: 10px;">
+            <hr>
+            <h4 class="text-success">Predicted Label: <span class="fw-bold">{{ predicted_label }}</span></h4>
+            <p class="text-primary"><strong>Prediction Confidence:</strong> {{ prediction_prob }}</p>
+            <p class="text-danger"><strong>Recommendation :</strong> {{ predicted_recommendation_heart }}</p>
+        </div>
+        
+        <div class="accordion mt-4" id="detailedAnalysisAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Understanding Your Result
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#detailedAnalysisAccordion">
+                    <div class="accordion-body">
+                        Our AI model has analyzed the uploaded ECG image and detected potential signs of heart disease. This result should be verified by a medical professional for an accurate diagnosis.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What to Do Next?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#detailedAnalysisAccordion">
+                    <div class="accordion-body">
+                        If your result shows a high probability of heart disease, consult a healthcare provider immediately for further testing and medical guidance.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-warning text-center mt-4">
+            <strong>Note:</strong> This tool provides a preliminary analysis. Always seek professional medical advice for accurate diagnosis and treatment.
+        </div>
+        
+        <div class="card-footer text-center">
+            <a href="/api/predict/heart" class="btn btn-primary fw-bold">Try Another Prediction</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Security Question{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0 rounded">
+            <div class="card-header text-center text-white" style="background: linear-gradient(90deg, #007bff, #0056b3);">
+                <h3 class="mb-0">Forgot Password</h3>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3 text-center">
+                        <p class="text-muted">Answer your security question to reset your password.</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="security_answer" class="form-label">{{ question }}</label>
+                        <input type="text" class="form-control text-center" id="security_answer" name="security_answer" placeholder="Enter your answer" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

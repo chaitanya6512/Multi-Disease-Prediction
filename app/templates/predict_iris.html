@@ -1,0 +1,92 @@
+<!-- Predict Iris Page: predict_iris.html -->
+{% extends "base.html" %}
+{% block title %}Predict Iris{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Predict Iris Species</h2>
+    <form id="irisPredictionForm" class="needs-validation" novalidate>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="sepallength" class="form-label">Sepal Length (cm)</label>
+                <input type="number" step="0.01" class="form-control" id="sepallength" name="sepallength" required>
+                <div class="invalid-feedback">Please provide a valid Sepal Length.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="sepalwidth" class="form-label">Sepal Width (cm)</label>
+                <input type="number" step="0.01" class="form-control" id="sepalwidth" name="sepalwidth" required>
+                <div class="invalid-feedback">Please provide a valid Sepal Width.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="petallength" class="form-label">Petal Length (cm)</label>
+                <input type="number" step="0.01" class="form-control" id="petallength" name="petallength" required>
+                <div class="invalid-feedback">Please provide a valid Petal Length.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="petalwidth" class="form-label">Petal Width (cm)</label>
+                <input type="number" step="0.01" class="form-control" id="petalwidth" name="petalwidth" required>
+                <div class="invalid-feedback">Please provide a valid Petal Width.</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Predict</button>
+    </form>
+    <div id="result" class="mt-4 alert d-none"></div>
+</div>
+
+<script>
+    // Form validation and submission
+    document.getElementById('irisPredictionForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = event.target;
+
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            return;
+        }
+
+        // Gather input data
+        const inputData = {
+            sepallength: parseFloat(document.getElementById('sepallength').value),
+            sepalwidth: parseFloat(document.getElementById('sepalwidth').value),
+            petallength: parseFloat(document.getElementById('petallength').value),
+            petalwidth: parseFloat(document.getElementById('petalwidth').value)
+        };
+
+        // Display loading message
+        const resultDiv = document.getElementById('result');
+        resultDiv.classList.remove('d-none', 'alert-success', 'alert-danger');
+        resultDiv.classList.add('alert-info');
+        resultDiv.innerText = 'Processing...';
+
+        // Fetch prediction from the server
+        fetch('/api/predict/iris', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(inputData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            resultDiv.classList.remove('alert-info');
+            if (data.species) {
+                resultDiv.classList.add('alert-success');
+                resultDiv.innerText = `Predicted Species: ${data.species}`;
+            } else if (data.error) {
+                resultDiv.classList.add('alert-danger');
+                resultDiv.innerText = `Error: ${data.error}`;
+            } else {
+                resultDiv.classList.add('alert-danger');
+                resultDiv.innerText = 'Unexpected error occurred.';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            resultDiv.classList.remove('alert-info');
+            resultDiv.classList.add('alert-danger');
+            resultDiv.innerText = 'An error occurred. Please try again.';
+        });
+    });
+</script>
+
+{% endblock %}

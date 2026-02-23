@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="hero-section text-center text-white py-5" style="background: linear-gradient(90deg, #003366, #6600cc);">
+    <div class="container">
+        <h1 class="fw-bold">Welcome to Multi-Disease Prediction System</h1>
+        <p class="lead">An AI-powered system to predict multiple diseases with high accuracy.</p>
+        <a href="/signin" class="btn btn-warning btn-lg fw-bold mt-3">Get Started</a>
+    </div>
+</div>
+
+<!-- About Project Section with Image and Cards -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="/static/images/project_overview.png" alt="Project Overview" class="img-fluid rounded shadow" style="max-width: 100%; height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold">About Our Project</h2>
+                <p class="lead text-muted">Our system leverages AI and machine learning to predict diseases early, allowing users to take preventive measures and make informed health decisions.</p>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="card shadow border-0 p-3">
+                            <h5>AI-Powered Insights</h5>
+                            <p>Real-time analysis of health data using AI.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card shadow border-0 p-3">
+                            <h5>Fast & Accurate</h5>
+                            <p>Provides quick and reliable disease predictions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Heart Disease Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="fw-bold">Heart Disease Prediction</h2>
+                <p>Our AI models analyze health indicators like blood pressure, cholesterol levels, and lifestyle habits to assess the risk of heart disease. Early detection helps in effective treatment and lifestyle modifications.</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="/static/images/heart_disease.png" alt="Heart Disease" class="img-fluid rounded shadow" style="max-width: 100%; height: 400px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Diabetes Section with Card Blocks -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold text-center">Diabetes Prediction</h2>
+        <p class="text-center">Our system analyzes blood sugar levels and lifestyle data to assess diabetes risk.</p>
+        <div class="row mt-4">
+            <div class="col-md-6 text-center">
+                <img src="/static/images/diabetes.png" alt="Diabetes" class="img-fluid rounded shadow" style="max-width: 100%; height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow border-0 p-4">
+                    <h5>Preventive Measures</h5>
+                    <p>Helps users manage lifestyle changes for better health.</p>
+                </div>
+                <div class="card shadow border-0 p-4 mt-3">
+                    <h5>Early Detection</h5>
+                    <p>Alerts users on potential diabetes risks for timely intervention.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pneumonia Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="fw-bold">Pneumonia Detection</h2>
+                <p>Using deep learning techniques, our model examines chest X-ray images to detect pneumonia early, aiding in timely medical intervention.</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="/static/images/pneumonia.png" alt="Pneumonia" class="img-fluid rounded shadow" style="max-width: 100%; height: 400px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Retinopathy Section with a Combination of Image and Cards -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold text-center">Retinopathy Detection</h2>
+        <p class="text-center">AI-powered analysis of retinal images to detect diabetic retinopathy.</p>
+        <div class="row mt-4">
+            <div class="col-md-6 text-center">
+                <img src="/static/images/retinopathy.png" alt="Retinopathy" class="img-fluid rounded shadow" style="max-width: 100%; height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow border-0 p-4">
+                    <h5>Vision Protection</h5>
+                    <p>Helps in early diagnosis to prevent vision loss.</p>
+                </div>
+                <div class="card shadow border-0 p-4 mt-3">
+                    <h5>Accurate Screening</h5>
+                    <p>AI model trained on thousands of retinal images.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold">How It Works</h2>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow border-0 p-4">
+                    <h3 class="fw-bold">Step 1</h3>
+                    <p>Sign up and enter your health parameters.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow border-0 p-4">
+                    <h3 class="fw-bold">Step 2</h3>
+                    <p>Our AI model analyzes the data.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow border-0 p-4">
+                    <h3 class="fw-bold">Step 3</h3>
+                    <p>Receive your disease prediction results instantly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 text-center" style="background: linear-gradient(90deg, #003366, #6600cc); color: white;">
+    <div class="container">
+        <h2 class="fw-bold">Get Started Today</h2>
+        <p class="lead">Take charge of your health. Use our AI-powered system for early disease detection.</p>
+        <a href="/signin" class="btn btn-warning btn-lg fw-bold">Start Predicting</a>
+    </div>
+</section>
+
+{% endblock %}

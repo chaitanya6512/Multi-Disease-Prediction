@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Verify Signup OTP{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0 rounded">
+            <div class="card-header text-center text-white" style="background: linear-gradient(90deg, #007bff, #0056b3);">
+                <h3 class="mb-0">Verify Signup OTP</h3>
+            </div>
+            <div class="card-body p-4">
+                <form action="/verify_signup_otp" method="post">
+                    <div class="mb-3 text-center">
+                        <p class="text-muted">We have sent an OTP to your registered email. Please enter it below to complete your signup.</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="otp" class="form-label">Enter OTP</label>
+                        <input type="text" class="form-control text-center" id="otp" name="otp" placeholder="6-digit OTP" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Verify OTP</button>
+                </form>
+                <hr>
+                <div class="text-center">
+                    <p class="mb-0">Didn't receive the OTP? <a href="/resend_otp" class="text-decoration-none">Resend OTP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
